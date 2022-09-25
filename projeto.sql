@@ -1,3 +1,5 @@
+CREATE DATABASE labschool;
+
 CREATE SCHEMA labschool;
 
 CREATE TABLE labschool.aluno(
@@ -25,8 +27,8 @@ VALUES
 (10,'Kaique Augusto Nunes','357.717.180-41','24/05/2003','(24)98825-8626',TRUE,9.75);
 
 SELECT * FROM labschool.aluno;
-SELECT id,nome_completo,telefone FROM labschool.aluno WHERE estado_matricula = TRUE;
-SELECT id,nome_completo,telefone FROM labschool.aluno WHERE estado_matricula = FALSE;
+SELECT id,nome_completo,cpf,telefone,estado_matricula FROM labschool.aluno WHERE estado_matricula = TRUE;
+SELECT id,nome_completo,cpf,telefone,estado_matricula FROM labschool.aluno WHERE estado_matricula = FALSE;
 SELECT id,nome_completo,cpf,telefone,nota_processo_seletivo FROM labschool.aluno WHERE nota_processo_seletivo > 8;
 SELECT id,nome_completo,cpf,telefone,nota_processo_seletivo FROM labschool.aluno WHERE nota_processo_seletivo < 8;
 
@@ -190,17 +192,13 @@ SELECT * FROM labschool.atendimento_pedagogico WHERE estado= FALSE;
 SELECT * FROM labschool.atendimento_pedagogico WHERE categoria='saude';
 SELECT * FROM labschool.atendimento_pedagogico WHERE categoria LIKE'auxilio%';
 
-SELECT ap.id_pedagogo,p.nome_completo,ap.categoria,ap.estado,ap.id_aluno,a.nome_completo
+SELECT ap.id_pedagogo,p.nome_completo,ap.id,ap.categoria,ap.estado,ap.id_aluno,a.nome_completo,a.cpf
 FROM labschool.atendimento_pedagogico ap
 JOIN labschool.pedagogo p ON ap.id_pedagogo = p.id
 JOIN labschool.aluno a ON ap.id_aluno = a.id;
 
-SELECT ap.id,ap.id_pedagogo,p.nome_completo,ap.categoria,ap.estado,ap.id_aluno,a.nome_completo
+SELECT ap.id_pedagogo,p.nome_completo,p.cpf,ap.id,ap.categoria,ap.estado,ap.id_aluno,a.nome_completo,a.cpf
 FROM labschool.atendimento_pedagogico ap
 JOIN labschool.pedagogo p ON ap.id_pedagogo = p.id
 JOIN labschool.aluno a ON ap.id_aluno = a.id
 WHERE ap.estado = TRUE;
-
-
-
-

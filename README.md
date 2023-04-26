@@ -1,5 +1,7 @@
 <h1 align="center">🚀 Projeto LabSchool SQL</h1>
-<img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white"></img>
+<div align='center'>
+    <img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white"></img>
+</div>
 <br></br>
 
 # 📰 Índice
